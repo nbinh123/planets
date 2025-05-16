@@ -1,0 +1,28 @@
+.login-background {
+    
+    background: radial-gradient(circle at center, #0d1b2a, #000);
+    /* ảnh nền vũ trụ */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glow effect */
+.card {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+}
+
+.card input:focus {
+    border-color: #00bfff;
+    box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+}
+.rocket{
+    
+    background-image: url("../../../../../public/images/rocket4.avif");
+    color: white !important;
+    background-size: cover;
+    scale: 1;
+    border: 1px solid black;
+}

@@ -1,0 +1,150 @@
+@import "../../BoostrapCustom.scss";
+
+.footer {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url("../../../public/images/star-night.jpg");
+  color: white;
+  padding: 2rem;
+  font-family: 'Orbitron', sans-serif;
+  border-top: 1px solid $border_color;
+  .left,
+  .center,
+  .right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left {
+    align-items: center;
+    gap: 1rem;
+
+    .contactBtn {
+      color: cyan;
+      margin: 0;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .email {}
+
+    .socialIcons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+
+      img {
+        width: 40px;
+        height: 40px;
+        background-color: #111;
+        padding: 0.5rem;
+        border-radius: 6px;
+        box-shadow: 0 0 10px #00f;
+      }
+    }
+  }
+
+  .center {
+    img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 0 20px #00f;
+      border-radius: 50%;
+    }
+
+    .devInfo {
+      margin-top: 0.5rem;
+      text-align: center;
+
+      span {
+        color: cyan;
+      }
+    }
+  }
+
+  .right {
+    align-items: center;
+
+    h3 {
+      color: cyan;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+        transition: 0.2s ease;
+
+        &:hover {
+          color: cyan;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+
+    .left,
+    .center,
+    .right {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    .left {
+      gap: 0.5rem;
+
+      .contactBtn {
+        font-size: 18px;
+      }
+
+      .socialIcons {
+        justify-content: center;
+        img {
+          width: 30px;
+          height: 30px;
+          padding: 0.4rem;
+        }
+      }
+    }
+
+    .center {
+      img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .devInfo {
+        font-size: 14px;
+      }
+    }
+
+    .right {
+      h3 {
+        font-size: 16px;
+      }
+
+      ul {
+        li {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

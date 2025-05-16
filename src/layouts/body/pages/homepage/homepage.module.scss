@@ -1,0 +1,134 @@
+@import "../../../../BoostrapCustom.scss";
+
+.container{
+    padding-top: 20vh;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    .part_2{
+        width: 90%;
+        border: 1px solid $border_color;
+        display: flex;
+        padding: 3vh 5vh;
+        border-radius: 15px;
+        margin: 1.5rem 0;
+        .left{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            .title{
+                display: flex;
+                justify-content: space-around;
+                margin: 20px 0;
+                img{
+                    max-height: 70px;
+                    width: 100%;
+                }
+                p{
+                    flex: 1;
+                    margin: 0;
+                    font-size: 15px;
+                }
+                .solarLab{
+                    text-align: center;
+                    font-weight: bold;     
+                }
+                
+            }
+            .joinWithUs{
+                display: flex;
+                justify-content: center;
+                button{
+                    width: 90%;
+                    background: #0b121a;
+                    color: white;
+                    padding: 18px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    border: 1px solid $border_color;
+                    margin: 20px 0;
+                    &:hover{
+                        animation: hov 0.25s 1 ease-in-out forwards;
+                    }
+                }
+            }
+        }
+        .right{
+            flex: 1;
+            img{
+                width: 100%;
+            }
+        }
+        .title{
+            font-family: "SF-Fourche";
+        }
+        .suitable{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+    }
+}
+
+@keyframes hov {
+    to{
+        text-shadow: 0 0 20px white;
+    }
+}
+
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .part_2 {
+    flex-direction: column;
+    padding: 2vh;
+
+    .left, .right {
+      flex: unset;
+      width: 100%;
+    }
+
+    .title {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      div {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      img {
+        max-width: 80px;
+        height: auto;
+      }
+
+      p {
+        max-width: 100%;
+        font-size: 14px;
+      }
+    }
+
+    .joinWithUs {
+      button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+      }
+    }
+
+    .right img {
+      margin-top: 20px;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}

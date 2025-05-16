@@ -1,0 +1,48 @@
+// BoostrapCustom.scss
+
+// 1. Override variables before import
+$primary: #ff6347;
+
+@import "bootstrap/scss/bootstrap";
+
+// 2. Your custom variables
+$border_color: #82C3CF;
+$box_shadow: 0 0 30px white;
+$title_color: white;
+$title_shadow: 0 0 30px white;
+$title_fontSize: 24px;
+
+// 3. Avoid dynamic keyframes name unless necessary
+@keyframes onShow {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes onHover {
+  from{
+    scale: 1;
+  }
+  to{
+    scale: 1.05;
+    box-shadow: $box_shadow;
+  }
+}
+@keyframes onScale {
+  from {
+    scale: 1;
+  }
+
+  to {
+    scale: 3;
+  }
+}
+
+// 4. Font style (make sure you import Open Sans somewhere globally)
+* {
+  font-family: 'Open Sans', sans-serif;
+}
