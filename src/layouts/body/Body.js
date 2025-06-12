@@ -16,7 +16,7 @@ function Body() {
             <Routes>
                 <Route path="/homepage" element={<Scene />} />
                 <Route path="/about" element={<Introduce />} />
-                <Route path="/account" element={<Scene/>}/>
+                <Route path="/universe" element={<Scene/>}/>
                 <Route path="/productions">
                     <Route index element={<Productions />} />
                     <Route path=":planet" element={<DetailPlanet />} />

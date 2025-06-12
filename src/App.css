@@ -1,8 +1,26 @@
 *{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
+  text-decoration: none;
 }
 a{
   text-decoration: none !important;
   color: white;
+}
+
+/* Ngăn cuộn ngang toàn bộ trang */
+body {
+  overflow-x: hidden;
+}
+
+/* Cẩn thận với width 100vw vì nó bao gồm cả scrollbar */
+html {
+  overflow-x: hidden;
+}
+
+/* Tùy chọn kiểm soát container gây tràn */
+.container-fluid,
+.container {
+  max-width: 100%;
+  overflow-x: hidden;
 }

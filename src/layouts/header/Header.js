@@ -1,20 +1,31 @@
 import React, { useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./header.module.scss";
 
 function NavItem({ content, href = "/" }) {
+
     const location = useLocation();
     const isActive = location.pathname === href;
+    const navigate = useNavigate();
 
+    const handleClick = (e) => {
+        e.preventDefault(); // ngăn chuyển trang ngay lập tức
+
+        // (nếu có) chạy animation ở đây...
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+            navigate(href);
+        }, 500);
+    }
     return (
-        <li className="nav-item mx-3 active">
-            <Link
+        <li className="nav-item mx-3 active" onClick={handleClick}>
+            <div
                 className={`nav-link ${isActive ? "active" : ""} px-3`}
                 style={{ color: "white" }}
                 to={href}
             >
                 {content}
-            </Link>
+            </div>
         </li>
     );
 }
@@ -25,11 +36,12 @@ function Header() {
         { content: "Home", href: "/" },
         { content: "About", href: "/about" },
         { content: "Productions", href: "/productions" },
-        { content: "Universe", href: "/account" },
-        { content: "Login", href: "/login" }
+        { content: "Universe", href: "/universe" },
+        { content: "Login", href: "/login" },
+        { content: "Solar system", href: "/solar.html" }
     ]);
 
-   
+
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-black fixed-top px-4">

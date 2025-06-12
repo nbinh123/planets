@@ -41,9 +41,10 @@ const Planet = ({ modelUrl, size, distance, speed, name, onSelect, isShow }) => 
         ref.current.rotation.y += 0.01;
     });
 
+
     return (
         <group>
-            {(distance > 0 && isShow) && <OrbitRing radius={distance}/>}
+            {(distance > 0 && isShow) && <OrbitRing radius={distance} />}
             <primitive
                 ref={ref}
                 object={scene}
@@ -79,6 +80,7 @@ const SolarSystem = () => {
         });
     }, [isPaused]);
 
+    
     return (
         <>
             <Canvas camera={{ position: [0, 20, 50], fov: 60 }} style={{ height: "100vh" }}>
@@ -103,7 +105,7 @@ const SolarSystem = () => {
                 ))}
             </Canvas>
 
-            <div style={{ }}>
+            <div style={{}}>
                 <button className="btn btn-light" onClick={() => setIsPaused(!isPaused)}>
                     {isPaused ? "Paused" : "Running"}
                 </button>

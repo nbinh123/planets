@@ -1,18 +1,15 @@
 @import "../../../../BoostrapCustom.scss";
 
-.container{
+.containe{
     padding-top: 20vh;
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: white;
     .part_2{
-        width: 90%;
         border: 1px solid $border_color;
         display: flex;
-        padding: 3vh 5vh;
+        // padding: 3vh 5vh;
         border-radius: 15px;
         margin: 1.5rem 0;
         .left{
@@ -26,7 +23,6 @@
                 margin: 20px 0;
                 img{
                     max-height: 70px;
-                    width: 100%;
                 }
                 p{
                     flex: 1;
