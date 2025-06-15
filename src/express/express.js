@@ -9,24 +9,24 @@ const route = require("./routes/routes")
 
 app.use(express.static(path.join(__dirname, "public")))
 app.use(methodOverride("_method"))
-    // đây là bước lưu vào biến body cho req.body trong phương thức post của form
+// đây là bước lưu vào biến body cho req.body trong phương thức post của form
 
 app.use(express.urlencoded({
-        extended: true,
-    }
-    )
-    );
-    app.use(express.json());
-    //nodemon dùng để lắng nghe sự thay đổi file một cách liên tục
-    //sử dụng morgan
+    extended: true,
+}
+)
+);
+app.use(express.json());
+//nodemon dùng để lắng nghe sự thay đổi file một cách liên tục
+//sử dụng morgan
 
-    //Template engineer
+//Template engineer
 
 app.set('view engine', 'hbs')
 app.set("views", path.join(__dirname, /* đường dẫn đến file views */ "resources\\views"))
 
-    // Local ( cục bộ ) host --- thuê hosting ( nơi lưu trữ ) => là 1
-    // Controller
+// Local ( cục bộ ) host --- thuê hosting ( nơi lưu trữ ) => là 1
+// Controller
 
 
 
@@ -43,9 +43,484 @@ app.use(express.urlencoded({
 app.use(express.json());
 
 app.get("/haha", (req, res) => {
-    res.json({
-        message: "tao la binh"
-    })
+    const data = [
+        {
+            "planet": "sun",
+            "questions": [
+                {
+                    "title": "Mặt trời là gì?",
+                    "answers": ["Hành tinh", "Ngôi sao", "Vệ tinh", "Thiên thạch"],
+                    "answer": "Ngôi sao"
+                },
+                {
+                    "title": "Thành phần chính của Mặt trời là gì?",
+                    "answers": ["Hydro và Heli", "Oxy", "Carbon", "Nitơ"],
+                    "answer": "Hydro và Heli"
+                },
+                {
+                    "title": "Mặt trời nằm ở trung tâm của?",
+                    "answers": ["Ngân Hà", "Hệ Mặt Trời", "Thiên Hà Andromeda", "Vũ trụ"],
+                    "answer": "Hệ Mặt Trời"
+                },
+                {
+                    "title": "Nhiệt độ bề mặt của Mặt trời khoảng?",
+                    "answers": ["6,000°C", "15,000°C", "1,000°C", "100°C"],
+                    "answer": "6,000°C"
+                },
+                {
+                    "title": "Mặt trời lớn hơn Trái Đất bao nhiêu lần về thể tích?",
+                    "answers": ["Khoảng 1 triệu lần", "100 lần", "10 nghìn lần", "1 tỷ lần"],
+                    "answer": "Khoảng 1 triệu lần"
+                },
+                {
+                    "title": "Nguồn năng lượng của Mặt trời đến từ quá trình nào?",
+                    "answers": ["Nhiệt phân", "Phản ứng hạt nhân tổng hợp", "Phóng xạ", "Đốt cháy khí"],
+                    "answer": "Phản ứng hạt nhân tổng hợp"
+                },
+                {
+                    "title": "Ánh sáng từ Mặt trời mất bao lâu để đến Trái Đất?",
+                    "answers": ["8 phút", "1 giây", "30 phút", "1 giờ"],
+                    "answer": "8 phút"
+                },
+                {
+                    "title": "Mặt trời có bao nhiêu lớp?",
+                    "answers": ["3", "5", "7", "9"],
+                    "answer": "3"
+                },
+                {
+                    "title": "Mặt trời có thể tồn tại bao lâu nữa?",
+                    "answers": ["1 triệu năm", "5 tỷ năm", "10 tỷ năm", "20 tỷ năm"],
+                    "answer": "5 tỷ năm"
+                },
+                {
+                    "title": "Mặt trời có bao nhiêu lần khối lượng của Trái Đất?",
+                    "answers": ["100 lần", "300,000 lần", "1 triệu lần", "1 tỷ lần"],
+                    "answer": "333,000 lần"
+                },
+                {
+                    "title": "Mặt trời phát ra ánh sáng nhờ vào quá trình nào?",
+                    "answers": ["Phản ứng hóa học", "Phản ứng hạt nhân", "Nhiệt phân", "Quang hợp"],
+                    "answer": "Phản ứng hạt nhân"
+                },
+                {
+                    "title": "Mặt trời có bao nhiêu hành tinh quay quanh?",
+                    "answers": ["8", "9", "10", "11"],
+                    "answer": "8"
+                }
+            ],
+            "link": "https://vi.wikipedia.org/wiki/Mặt_Trời"
+        },
+        {
+            "planet": "mercury",
+            "questions": [
+                {
+                    "title": "Sao Thủy là hành tinh gần Mặt trời nhất?",
+                    "answers": ["Đúng", "Sai"],
+                    "answer": "Đúng"
+                },
+                {
+                    "title": "Sao Thủy có bầu khí quyển không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Không"
+                },
+                {
+                    "title": "Một năm trên Sao Thủy kéo dài khoảng bao lâu (ngày Trái Đất)?",
+                    "answers": ["88 ngày", "365 ngày", "225 ngày", "30 ngày"],
+                    "answer": "88 ngày"
+                },
+                {
+                    "title": "Bề mặt Sao Thủy giống với?",
+                    "answers": ["Mặt trăng", "Sao Hỏa", "Trái Đất", "Sao Kim"],
+                    "answer": "Mặt trăng"
+                },
+                {
+                    "title": "Sao Thủy có vệ tinh tự nhiên không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Không"
+                },
+                {
+                    "title": "Sao Thủy quay quanh trục mất bao lâu?",
+                    "answers": ["59 ngày", "1 ngày", "88 ngày", "10 ngày"],
+                    "answer": "59 ngày"
+                },
+                {
+                    "title": "Tên gọi Mercury bắt nguồn từ?",
+                    "answers": ["Thần Hermes", "Thần chiến tranh", "Thần đưa tin", "Thần tình yêu"],
+                    "answer": "Thần đưa tin"
+                },
+                {
+                    "title": "Nhiệt độ cao nhất trên Sao Thủy khoảng bao nhiêu độ C?",
+                    "answers": ["400°C", "200°C", "600°C", "800°C"],
+                    "answer": "400°C"
+                },
+                {
+                    "title": "Sao Thủy có thể nhìn thấy từ Trái Đất không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Thủy có thể có nước không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Không"
+                },
+                {
+                    "title": "Sao Thủy có thể có hoạt động địa chất không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Thủy có thể có từ trường không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Thủy có thể có sự sống không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Không"
+                }
+            ],
+            "link": "https://vi.wikipedia.org/wiki/Sao_Thủy"
+        },
+        {
+            "planet": "venus",
+            "questions": [
+                {
+                    "title": "Sao Kim còn được gọi là gì?",
+                    "answers": ["Hành tinh đỏ", "Sao mai/Sao hôm", "Hành tinh băng", "Sao tím"],
+                    "answer": "Sao mai/Sao hôm"
+                },
+                {
+                    "title": "Khí quyển Sao Kim dày đặc với thành phần chủ yếu là?",
+                    "answers": ["Carbon dioxide", "Oxy", "Hydro", "Nitơ"],
+                    "answer": "Carbon dioxide"
+                },
+                {
+                    "title": "Sao Kim có quay theo chiều ngược với hầu hết các hành tinh khác không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Kim nóng hơn Trái Đất vì?",
+                    "answers": ["Hiệu ứng nhà kính", "Gần Mặt trời hơn", "Có nhiều núi lửa", "Không có mây"],
+                    "answer": "Hiệu ứng nhà kính"
+                },
+                {
+                    "title": "Sao Kim có vệ tinh không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Không"
+                },
+                {
+                    "title": "Bề mặt Sao Kim chủ yếu là?",
+                    "answers": ["Núi lửa và đồng bằng dung nham", "Nước", "Băng tuyết", "Đồng cỏ"],
+                    "answer": "Núi lửa và đồng bằng dung nham"
+                },
+                {
+                    "title": "Một ngày trên Sao Kim dài hơn?",
+                    "answers": ["Một năm của nó", "Một ngày Trái Đất", "Một tuần Trái Đất", "Không rõ"],
+                    "answer": "Một năm của nó"
+                },
+                {
+                    "title": "Nhiệt độ trung bình trên bề mặt Sao Kim khoảng bao nhiêu độ C?",
+                    "answers": ["100°C", "200°C", "400°C", "600°C"],
+                    "answer": "460°C"
+                },
+                {
+                    "title": "Sao Kim có thể nhìn thấy từ Trái Đất không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Kim có thể có nước không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Không"
+                },
+                {
+                    "title": "Sao Kim có hoạt động địa chất không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Kim có từ trường không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Không"
+                },
+                {
+                    "title": "Sao Kim có thể có sự sống không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Không"
+                }
+            ],
+            "link": "https://vi.wikipedia.org/wiki/Sao_Kim"
+        },
+        {
+            "planet": "earth",
+            "questions": [
+                {
+                    "title": "Trái Đất là hành tinh duy nhất có sự sống?",
+                    "answers": ["Đúng", "Sai"],
+                    "answer": "Đúng"
+                },
+                {
+                    "title": "Trái Đất có bao nhiêu phần trăm nước?",
+                    "answers": ["50%", "70%", "80%", "90%"],
+                    "answer": "70%"
+                },
+                {
+                    "title": "Trái Đất quay quanh Mặt trời mất bao lâu?",
+                    "answers": ["365 ngày", "24 giờ", "30 ngày", "12 tháng"],
+                    "answer": "365 ngày"
+                },
+                {
+                    "title": "Trái Đất có bao nhiêu lục địa?",
+                    "answers": ["5", "6", "7", "8"],
+                    "answer": "7"
+                },
+                {
+                    "title": "Trái Đất có vệ tinh tự nhiên nào?",
+                    "answers": ["Mặt trăng", "Sao Hỏa", "Sao Kim", "Sao Thủy"],
+                    "answer": "Mặt trăng"
+                },
+                {
+                    "title": "Nhiệt độ trung bình trên Trái Đất khoảng bao nhiêu độ C?",
+                    "answers": ["15°C", "20°C", "25°C", "30°C"],
+                    "answer": "15°C"
+                },
+                {
+                    "title": "Trái Đất có khí quyển không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Trái Đất có thể có sự sống không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Trái Đất có bao nhiêu đại dương?",
+                    "answers": ["1", "2", "3", "5"],
+                    "answer": "5"
+                },
+                {
+                    "title": "Trái Đất có thể có động đất không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Trái Đất có thể có núi lửa không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Trái Đất có thể có bão không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Trái Đất có thể có khí hậu không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                }
+            ],
+            "link": "https://vi.wikipedia.org/wiki/Trái_Đất"
+        },
+        {
+            "planet": "mars",
+            "questions": [
+                {
+                    "title": "Sao Hỏa còn được gọi là hành tinh đỏ?",
+                    "answers": ["Đúng", "Sai"],
+                    "answer": "Đúng"
+                },
+                {
+                    "title": "Sao Hỏa có bầu khí quyển không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Hỏa có nước không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Hỏa có vệ tinh tự nhiên nào?",
+                    "answers": ["Phobos và Deimos", "Mặt trăng", "Titan", "Europa"],
+                    "answer": "Phobos và Deimos"
+                },
+                {
+                    "title": "Sao Hỏa có thể có sự sống không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Nhiệt độ trung bình trên Sao Hỏa khoảng bao nhiêu độ C?",
+                    "answers": ["-60°C", "-20°C", "0°C", "20°C"],
+                    "answer": "-60°C"
+                },
+                {
+                    "title": "Sao Hỏa có thể có núi lửa không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Hỏa có thể có bão không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Hỏa có thể có khí hậu không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Hỏa có thể có động đất không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Hỏa có thể có nước băng không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Hỏa có thể có sự sống không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Hỏa có thể có dấu hiệu của sự sống không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                }
+            ],
+            "link": "https://vi.wikipedia.org/wiki/Sao_Hỏa"
+        },
+        {
+            "planet": "jupiter",
+            "questions": [
+                {
+                    "title": "Sao Mộc là hành tinh lớn nhất trong hệ Mặt Trời?",
+                    "answers": ["Đúng", "Sai"],
+                    "answer": "Đúng"
+                },
+                {
+                    "title": "Sao Mộc có bao nhiêu vệ tinh tự nhiên?",
+                    "answers": ["4", "12", "79", "100"],
+                    "answer": "79"
+                },
+                {
+                    "title": "Sao Mộc có bầu khí quyển không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Mộc có thể có nước không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Mộc có thể có bão không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Mộc có thể có khí hậu không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Mộc có thể có động đất không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Mộc có thể có sự sống không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Mộc có thể có núi lửa không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Mộc có thể có dấu hiệu của sự sống không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Mộc có thể có từ trường không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Mộc có thể có bão lớn không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Mộc có thể có các vành đai không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                }
+            ],
+            "link": "https://vi.wikipedia.org/wiki/Sao_Mộc"
+        },
+        {
+            "planet": "saturn",
+            "questions": [
+                {
+                    "title": "Sao Thổ nổi tiếng với vành đai của nó?",
+                    "answers": ["Đúng", "Sai"],
+                    "answer": "Đúng"
+                },
+                {
+                    "title": "Sao Thổ có bao nhiêu vệ tinh tự nhiên?",
+                    "answers": ["30", "62", "82", "100"],
+                    "answer": "82"
+                },
+                {
+                    "title": "Sao Thổ có bầu khí quyển không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Thổ có thể có nước không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Thổ có thể có bão không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Thổ có thể có khí hậu không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Thổ có thể có động đất không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Thổ có thể có sự sống không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Thổ có thể có núi lửa không?",
+                    "answers": ["Có", "Không"],
+                    "answer": "Có"
+                },
+                {
+                    "title": "Sao Thổ có thể có dấu hiệu của sự sống không?",
+                    "answers": ["Có", "Không"],
+                },
+            ]
+        }
+    ]
+    res.json(data)
 })
 
 

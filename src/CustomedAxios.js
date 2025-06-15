@@ -1,8 +1,9 @@
 // const axios = require("axios");
 import axios from "axios"
 
-async function getAPI(port = 5000, url, id = "", paramCondition) {
-    const fullUrl = `http://localhost:${port}${url}${id ? `/${id}` : ""}`;
+const web = "localhost";
+async function getAPI(port = 5000, url, id = "", paramCondition = {}) {
+    const fullUrl = `http://${web}:${port}${url}${id ? `/${id}` : ""}`;
 
     try {
         const response = await axios.get(fullUrl, {
@@ -19,7 +20,7 @@ async function getAPI(port = 5000, url, id = "", paramCondition) {
 }
 
 async function postAPI(port = 5000, url, id, data = {}) {
-    const fullUrl = `http://localhost:${port}${url}${id ? `/${id}` : ""}`;
+    const fullUrl = `http://${web}:${port}${url}${id ? `/${id}` : ""}`;
 
     const response = await axios.post(fullUrl, data)
     return response.data;

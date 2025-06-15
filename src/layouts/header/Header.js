@@ -2,30 +2,42 @@ import React, { useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./header.module.scss";
 
-function NavItem({ content, href = "/" }) {
+function NavItem({ content, href = "/", isDif }) {
 
     const location = useLocation();
     const isActive = location.pathname === href;
     const navigate = useNavigate();
 
     const handleClick = (e) => {
-        e.preventDefault(); // ngăn chuyển trang ngay lập tức
+        if (!isDif) {
+            e.preventDefault(); // ngăn chuyển trang ngay lập tức
 
-        // (nếu có) chạy animation ở đây...
-        window.scrollTo(0, 0);
-        setTimeout(() => {
-            navigate(href);
-        }, 500);
+            // (nếu có) chạy animation ở đây...
+            window.scrollTo(0, 0);
+            setTimeout(() => {
+                navigate(href);
+            }, 500);
+        }
     }
     return (
-        <li className="nav-item mx-3 active" onClick={handleClick}>
-            <div
-                className={`nav-link ${isActive ? "active" : ""} px-3`}
-                style={{ color: "white" }}
-                to={href}
-            >
-                {content}
-            </div>
+        <li style={{ cursor: "pointer", userSelect: "none" }} className="nav-item mx-3 active" onClick={handleClick}>
+            {!isDif ? (
+                <div
+                    className={`nav-link ${isActive ? "active" : ""} px-3`}
+                    style={{ color: "white" }}
+                    to={href}
+                >
+                    {content}
+                </div>
+            ) : (
+                <a
+                    className={`nav-link ${isActive ? "active" : ""} px-3`}
+                    style={{ color: "white" }}
+                    href={href}
+                >
+                    {content}
+                </a>
+            )}
         </li>
     );
 }
@@ -33,15 +45,14 @@ function NavItem({ content, href = "/" }) {
 function Header() {
 
     const navItems = useRef([
-        { content: "Home", href: "/" },
-        { content: "About", href: "/about" },
-        { content: "Productions", href: "/productions" },
-        { content: "Universe", href: "/universe" },
-        { content: "Login", href: "/login" },
-        { content: "Solar system", href: "/solar.html" }
+        { content: "Home", href: "/", isDif: false },
+        { content: "About", href: "/about", isDif: false },
+        { content: "Planets", href: "/productions", isDif: false },
+        { content: "Universe", href: "/universe", isDif: false },
+        { content: "Quizz", href: "/quizz/choose", isDif: false },
+        { content: "Login", href: "/login", isDif: false },
+        { content: "More features", href: "/more", isDif: false}
     ]);
-
-
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-black fixed-top px-4">
@@ -69,6 +80,7 @@ function Header() {
                                 key={index}
                                 content={element.content}
                                 href={element.href}
+                                isDif={element.isDif}
                             />
                         ))}
                     </ul>

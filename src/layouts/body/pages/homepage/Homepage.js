@@ -19,7 +19,7 @@ function Homepage() {
     return (
         <div className={`container-fluid ${styles.containe}`} >
             <Quote />
-            <div className={`${styles.part_2} px-5 py-5`}data-aos="fade-right">
+            <div className={`${styles.part_2} px-5 py-5`} data-aos="fade-right">
                 <div className={styles.left}>
                     <div className={styles.title}>
                         <div>

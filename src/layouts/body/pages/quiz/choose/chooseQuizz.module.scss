@@ -1,0 +1,39 @@
+.container{
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    .title{
+
+    }
+    .tag{
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid white;
+        border-radius: 15px;
+        margin: 0.5rem 0;
+        cursor: pointer;
+        p{
+            margin: 1.5rem 0;
+        }
+
+        &:hover{
+            animation: hove 0.2s 1 ease-out forwards;
+        }
+    }
+}
+
+@keyframes hove {
+    from {
+        transform: translate(0, 0);
+    }
+    to{
+        transform: translate(10px, -5px);
+        box-shadow: 0 0 30px #00FFFF;
+        background-color: #994ce2;
+    }
+}

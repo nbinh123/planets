@@ -19,6 +19,10 @@
         align-items: center;
         span{
             margin: 0 10rem;
+            line-height: 1.5rem;
+            @media (max-width: 600px) {
+                width: 100%;
+            }
         }
     }
 }

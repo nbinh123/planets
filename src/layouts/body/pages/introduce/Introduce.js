@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 function Tag({ avatar, name, describe, index = 0 }) {
     return (
         <div className={styles.tag} data-aos="fade-up" data-aos-delay={index * 300}>
-            <img src="/images/person.jpg" />
+            <img src={avatar} />
             <p className={styles.name}>{name}</p>
             <p className={styles.describe}>{describe}</p>
         </div>
@@ -24,7 +24,6 @@ function CommissionTag({ img, content, title, index = 0 }) {
             <div class="row g-0">
                 <div class="col-md-4" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <img src={img} class="img-fluid " alt="..." />
-
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
@@ -42,21 +41,21 @@ function Introduce() {
 
     const data = useRef([
         {
-            name: "Binh",
+            name: "Nguyen Binh",
             describe: "Came up with the idea of Solar. Nowadays both a designer and a developer. Would very much like to visit low orbit some day",
-            avatar: "/images/person/jpg"
+            avatar: "./binh.jpg"
         }, {
-            name: "Khanh",
+            name: "Nhat Khanh",
             describe: "Came up with the idea of Solar. Nowadays both a designer and a developer. Would very much like to visit low orbit some day",
-            avatar: "/images/person/jpg"
+            avatar: "./khanh.jpg"
         }, {
-            name: "Nguyen",
+            name: "Tu Nguyen",
             describe: "Came up with the idea of Solar. Nowadays both a designer and a developer. Would very much like to visit low orbit some day",
-            avatar: "/images/person/jpg"
+            avatar: "./nguyen.jpg"
         }, {
-            name: "Thao",
+            name: "Thai Son",
             describe: "Came up with the idea of Solar. Nowadays both a designer and a developer. Would very much like to visit low orbit some day",
-            avatar: "/images/person/jpg"
+            avatar: "./son.jpg"
         }
     ])
     const commissionTag = useRef([
