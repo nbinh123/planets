@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import styles from "./QType.module.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
@@ -19,15 +19,25 @@ function Detail() {
         "Sun"
     ];
 
+    const navigate = useNavigate()
+
     const [show, setShow] = useState(false);
 
     const [modalContent, setModalContent] = useState(null)
-    const [modalAction, setModalAction] = useState(() => { })
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
     const [selectedPlanets, setSelectedPlanets] = useState([]);
+
+    const modalAction = () => {
+        // Bước 1: Chuyển mảng thành chuỗi JSON
+        const jsonPlanets = JSON.stringify(selectedPlanets);
+
+        // Bước 2: Lưu vào localStorage
+        localStorage.setItem("jsonPlanets", jsonPlanets);
+
+        navigate("/quizz/play/detail")
+    }
 
     const handleToggle = (planet) => {
         setSelectedPlanets((prevSelected) =>
@@ -73,7 +83,7 @@ function Detail() {
                 <Modal.Header closeButton className="px-4">
                     <Modal.Title className="h5">Xác nhận lựa chọn</Modal.Title>
                 </Modal.Header>
-                <Modal.Body className="px-4">{modalContent}</Modal.Body>
+                <Modal.Body className="px-4">{`Xác nhận chọn ${selectedPlanets.join()}`}</Modal.Body>
                 <Modal.Footer className="px-4">
                     <Button variant="secondary" onClick={handleClose}>
                         Đóng

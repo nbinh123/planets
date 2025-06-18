@@ -1,9 +1,21 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./quizz.module.scss"
 import QuizzTag from "./tag/QuizzTag";
+import { useParams } from "react-router-dom";
 
 function Quizz() {
 
+    const { type } = useParams()
+
+    useEffect(() => {
+        // Bước 1: Lấy chuỗi từ localStorage
+        const stored = localStorage.getItem("jsonPlanets");
+
+        // Bước 2: Chuyển lại thành mảng
+        const planetsArray = JSON.parse(stored);
+
+        console.log(planetsArray);  // ["apple", "banana", "cherry"]
+    }, [])
     const data = useRef(
         [
             {
@@ -135,7 +147,7 @@ function Quizz() {
     return (
         <div className={`${styles.container} py-5 my-5`}>
             {data.current.map((element) => {
-                return <QuizzTag obj={element}/>
+                return <QuizzTag obj={element} />
             })}
         </div>
     );

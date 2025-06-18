@@ -33,7 +33,7 @@ function Body() {
                         <Route path=":type" element={<QTypes/>}/>
                         <Route path="" element={<ChooseQuizz/>}/>
                     </Route>
-                    <Route path="play" element={<Quizz />} />
+                    <Route path="play/:type" element={<Quizz />} />
                 </Route>
                 <Route path="/more" element={<Homepage/>}/>
                 {/* <Route path="/user/manage" element={<RequireAuth children={<Info />} />} />
